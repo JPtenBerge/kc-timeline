@@ -1,4 +1,4 @@
-const template = `<style>
+const outerTemplate = `<style>
 @font-face {
 	font-family: 'Quicksand';
 	src: url("./fonts/Quicksand-Regular.ttf"); }
@@ -73,23 +73,8 @@ const template = `<style>
 			<span class="caption">fronteers presentation</span>
 		</div>
 	</template>
-	<input type="radio">
-	<div class="dot-info">
-		<span class="year">2011</span>
-		<span class="caption">fronteers presentation</span>
-	</div>
 
-	<input type="radio">
-	<div class="dot-info">
-		<span class="year">2013</span>
-		<span class="caption">polymer</span>
-	</div>
-
-	<input type="radio">
-	<div class="dot-info">
-		<span class="year">2015</span>
-		<span class="caption">v0 spec</span>
-	</div>
+	<!-- dynamic dots will be inserted here -->
 </div>`;
 
 customElements.define('kc-timeline', class extends HTMLElement {
@@ -97,8 +82,7 @@ customElements.define('kc-timeline', class extends HTMLElement {
 		super();
 
 		this.root = this.attachShadow({ mode: 'closed' });
-
-		this.root.innerHTML = template;
+		this.render();
 	}
 
 	connectedCallback() {
@@ -108,5 +92,17 @@ customElements.define('kc-timeline', class extends HTMLElement {
 			all('input:focus ~ input').forEach(i => i.className = '');
 			i.className += ' current';
 		}));
+	}
+
+	render() {
+		this.root.innerHTML = outerTemplate;
+
+		let template = this.root.querySelector('#dot-template').content;
+		this.events.forEach(event => {
+			let clone = document.importNode(template, true);
+			clone.querySelector('.year').innerHTML = event.year;
+			clone.querySelector('.caption').innerHTML = event.caption;
+			this.root.querySelector('#timeline').appendChild(clone);
+		});
 	}
 });

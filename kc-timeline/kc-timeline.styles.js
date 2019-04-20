@@ -1,15 +1,6 @@
 export const timelineStyles = `<style>
-@font-face {
-  font-family: 'Quicksand';
-  src: url("./fonts/Quicksand-Regular.ttf"); }
-
-@font-face {
-  font-family: 'Quicksand-Bold';
-  src: url("./fonts/Quicksand-Bold.ttf"); }
-
-body {
-  padding: 100px 0 0 100px;
-  font-family: Quicksand, arial; }
+:host {
+  font-family: 'Quicksand'; }
 
 #timeline {
   display: flex; }

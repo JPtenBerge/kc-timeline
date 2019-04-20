@@ -12,8 +12,7 @@ $inactive: #AEB6BF;
 $distance-between-dots: 64px;
 $dot-size: 25px;
 
-body {
-	padding: 100px 0 0 100px;
+:host {
 	font-family: Quicksand, arial;
 }
 

@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'Quicksand';
+	src: url('./fonts/Quicksand-Regular.ttf');
+}
+@font-face {
+	font-family: 'Quicksand-Bold';
+	src: url('./fonts/Quicksand-Bold.ttf');
+}
+
+// met deze variabelen 
+
+$active: #2C3E50;
+$inactive: #AEB6BF;
+$distance-between-dots: 64px;
+$dot-size: 25px;
+
+body {
+	padding: 100px 0 0 100px;
+	font-family: Quicksand, arial;
+}
+
+#timeline {
+	display: flex;
+}
+
+input {
+	width: $dot-size;
+	height: $dot-size;
+	background-color: $inactive;
+	position: relative;
+	border-radius: 50%;
+	display: block;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	z-index: 2;
+	cursor: pointer;
+}
+input.active, input.active:before {
+	background-color: $active;
+}
+input:focus {
+	outline: none;
+}
+
+/* the lines */
+input:before {
+	content: '';
+	display: block;
+	width: $distance-between-dots + $dot-size;
+	height: 5px;
+	background: $inactive;
+	z-index: 1;
+	transform: translate(($distance-between-dots * - 1) - $dot-size + 17px, 10px);
+}
+
+/* year and label */
+.dot-info {
+	position: relative;
+}
+input + .dot-info .caption {
+	transform: translate(-50%, -70px) rotate(-45deg);
+	display: block;
+	max-width: 70px;
+	text-indent: -10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+input + .dot-info .year {
+	width: $distance-between-dots;
+	display: block;
+	transform: translate(-50%, 50px);
+}
+input.current + .dot-info {
+	font-family: 'Quicksand-Bold';
+}

@@ -11,7 +11,7 @@
 
 	<kc-timeline></kc-timeline>
 
-	<div id="timeline">
+	<!-- <div id="timeline">
 		<input type="radio">
 		<div class="dot-info">
 			<span class="year">2011</span>
@@ -29,17 +29,17 @@
 			<span class="year">2015</span>
 			<span class="caption">v0 spec</span>
 		</div>
-	</div>
+	</div> -->
 
 	<script>
-		function all(selector) {
-			return document.querySelectorAll(selector);
-		}
-		all('input').forEach(i => i.addEventListener('click', () => {
-			all('input').forEach(i => i.className = 'active');
-			all('input:focus ~ input').forEach(i => i.className = '');
-			i.className += ' current';
-		}));
+		// function all(selector) {
+		// 	return document.querySelectorAll(selector);
+		// }
+		// all('input').forEach(i => i.addEventListener('click', () => {
+		// 	all('input').forEach(i => i.className = 'active');
+		// 	all('input:focus ~ input').forEach(i => i.className = '');
+		// 	i.className += ' current';
+		// }));
 	</script>
 
 </body>

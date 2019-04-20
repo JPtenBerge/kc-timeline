@@ -96,6 +96,17 @@ customElements.define('kc-timeline', class extends HTMLElement {
 	constructor() {
 		super();
 
-		this.innerHTML = template;
+		this.root = this.attachShadow({ mode: 'closed' });
+
+		this.root.innerHTML = template;
+	}
+
+	connectedCallback() {
+		let all = selector => this.root.querySelectorAll(selector);
+		all('input').forEach(i => i.addEventListener('click', () => {
+			all('input').forEach(i => i.className = 'active');
+			all('input:focus ~ input').forEach(i => i.className = '');
+			i.className += ' current';
+		}));
 	}
 });

@@ -34,7 +34,7 @@ input:focus {
   outline: none; }
 
 /* the lines */
-input:before {
+input:before, input:last-of-type:after {
   content: '';
   display: block;
   width: 89px;
@@ -42,6 +42,9 @@ input:before {
   background: #AEB6BF;
   z-index: 1;
   transform: translate(-72px, 10px); }
+
+input:last-of-type:after {
+  transform: translate(25px, 5px); }
 
 /* year and label */
 .dot-info {
@@ -66,7 +69,6 @@ input.current + .dot-info {
 
 #description {
   margin-top: 70px; }
-
 </style>
 
 <div id="timeline">

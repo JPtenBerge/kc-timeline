@@ -44,7 +44,7 @@ input:focus {
 }
 
 /* the lines */
-input:before {
+input:before, input:last-of-type:after {
 	content: '';
 	display: block;
 	width: $distance-between-dots + $dot-size;
@@ -52,6 +52,9 @@ input:before {
 	background: $inactive;
 	z-index: 1;
 	transform: translate(($distance-between-dots * - 1) - $dot-size + 17px, 10px);
+}
+input:last-of-type:after {
+	transform: translate(25px, 5px);
 }
 
 /* year and label */

@@ -69,8 +69,8 @@ const outerTemplate = `<style>
 	<template id="dot-template">
 		<input type="radio">
 		<div class="dot-info">
-			<span class="year">2011</span>
-			<span class="caption">fronteers presentation</span>
+			<span class="year"></span>
+			<span class="caption"></span>
 		</div>
 	</template>
 

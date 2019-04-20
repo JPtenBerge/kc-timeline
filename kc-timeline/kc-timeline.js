@@ -63,6 +63,10 @@ const outerTemplate = `<style>
   
   input.current + .dot-info {
 	font-family: 'Quicksand-Bold'; }
+
+	#description {
+		margin-top: 70px;
+	}
 </style>
 
 <div id="timeline">
@@ -75,7 +79,10 @@ const outerTemplate = `<style>
 	</template>
 
 	<!-- dynamic dots will be inserted here -->
-</div>`;
+</div>
+
+<p id="description"></p>
+`;
 
 customElements.define('kc-timeline', class extends HTMLElement {
 	constructor() {
@@ -87,10 +94,13 @@ customElements.define('kc-timeline', class extends HTMLElement {
 
 	connectedCallback() {
 		let all = selector => this.root.querySelectorAll(selector);
+
 		all('input').forEach(i => i.addEventListener('click', () => {
 			all('input').forEach(i => i.className = 'active');
 			all('input:focus ~ input').forEach(i => i.className = '');
 			i.className += ' current';
+
+			this.root.querySelector('#description').innerHTML = i.event.description;
 		}));
 	}
 
@@ -102,6 +112,7 @@ customElements.define('kc-timeline', class extends HTMLElement {
 			let clone = document.importNode(template, true);
 			clone.querySelector('.year').innerHTML = event.year;
 			clone.querySelector('.caption').innerHTML = event.caption;
+			clone.querySelector('input').event = event;
 			this.root.querySelector('#timeline').appendChild(clone);
 		});
 	}

@@ -7,6 +7,10 @@
 	<style>
 		body {
 			padding: 100px 0 0 100px;
+			font-size: 35px;
+		}
+		kc-timeline {
+			zoom: 3vw;
 		}
 
 		@font-face {
@@ -22,29 +26,45 @@
 </head>
 
 <body>
-	<kc-timeline></kc-timeline>
+	<kc-timeline events='[
+	{
+		"year": 2011,
+		"caption": "amazing",
+		"description": "everyone loved it"
+	},
+	{
+		"year": 2014,
+		"caption": "it works",
+		"description": "also important"
+	},
+	{
+		"year": 2018,
+		"caption": "wauw",
+		"description": "expressions of owen wilson"
+	}
+]'></kc-timeline>
 
 	hier meer
 
 	<script>
-		let timeline = document.querySelector('kc-timeline');
-		timeline.events = [
-			{
-				year: 2011,
-				caption: 'amazing',
-				description: 'everyone loved it'
-			},
-			{
-				year: 2014,
-				caption: 'it works',
-				description: 'also important'
-			},
-			{
-				year: 2018,
-				caption: 'wauw',
-				description: 'expressions of owen wilson'
-			}
-		];
+		// let timeline = document.querySelector('kc-timeline');
+		// timeline.events = [
+		// 	{
+		// 		year: 2011,
+		// 		caption: 'amazing',
+		// 		description: 'everyone loved it'
+		// 	},
+		// 	{
+		// 		year: 2014,
+		// 		caption: 'it works',
+		// 		description: 'also important'
+		// 	},
+		// 	{
+		// 		year: 2018,
+		// 		caption: 'wauw',
+		// 		description: 'expressions of owen wilson'
+		// 	}
+		// ];
 	</script>
 </body>
 

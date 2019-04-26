@@ -1,6 +1,13 @@
 export const timelineStyles = `<style>
 :host {
-  font-family: 'Quicksand'; }
+  font-family: 'Quicksand';
+  font-size: 16px;
+  text-align: left;
+  padding-top: 150px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+flex-direction: column;}
 
 #timeline {
   display: flex; }

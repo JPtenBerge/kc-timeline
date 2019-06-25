@@ -9,7 +9,7 @@ customElements.define('kc-timeline', class extends HTMLElement {
 	constructor() {
 		super();
 
-		this.root = this.attachShadow({ mode: 'closed' });
+		this.root = this.attachShadow({ mode: 'open' });
 		this.render();
 	}
 

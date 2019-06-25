@@ -9,26 +9,26 @@ customElements.define('kc-timeline', class extends HTMLElement {
 	constructor() {
 		super();
 
-		this.root = this.attachShadow({ mode: 'open' });
+		this.attachShadow({ mode: 'open' });
 		this.render();
 	}
 
 	connectedCallback() {
-		let all = selector => this.root.querySelectorAll(selector);
+		let all = selector => this.shadowRoot.querySelectorAll(selector);
 
 		all('input').forEach(i => i.addEventListener('click', () => {
 			all('input').forEach(i => i.className = 'active');
 			all('input:focus ~ input').forEach(i => i.className = '');
 			i.className += ' current';
 
-			this.root.querySelector('#description').innerHTML = i.event.description;
+			this.shadowRoot.querySelector('#description').innerHTML = i.event.description;
 		}));
 	}
 
 	render() {
-		this.root.innerHTML = outerTemplate;
+		this.shadowRoot.innerHTML = outerTemplate;
 
-		let template = this.root.querySelector('#dot-template').content;
+		let template = this.shadowRoot.querySelector('#dot-template').content;
 		let events;
 		try {
 			events = JSON.parse(this.getAttribute('events'));
